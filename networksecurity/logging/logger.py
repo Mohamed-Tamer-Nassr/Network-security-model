@@ -34,3 +34,6 @@ console_handler.setFormatter(formatter)
 # Add handlers to logger
 logger.addHandler(file_handler)
 logger.addHandler(console_handler)
+
+# Export the logger as 'logging' for use in other modules
+logging = logger

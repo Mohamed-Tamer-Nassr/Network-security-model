@@ -39,9 +39,9 @@ class NetworkSecurityException(Exception):
 
 if __name__ == "__main__":
     try:
-        logger.info("Enter the try block")
+        logger.logging.info("Enter the try block")
         a = 1 / 0
-        logger.info("This line won't execute")
+        logger.logging.info("This line won't execute")
     except Exception as e:
-        logger.error("Exception occurred", exc_info=True)
+        logger.logging.error("Exception occurred", exc_info=True)
         raise NetworkSecurityException(e, sys) from e
