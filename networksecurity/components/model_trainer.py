@@ -34,6 +34,12 @@ from sklearn.ensemble import (
     RandomForestClassifier,
 )
 
+import dagshub
+
+dagshub.init(
+    repo_owner="mohamed.tamer.mtn", repo_name="Network-Security-Model", mlflow=True
+)
+
 
 class ModelTrainer:
     def __init__(
@@ -60,7 +66,9 @@ class ModelTrainer:
             mlflow.log_metric("f1_score", f1_score)
             mlflow.log_metric("precision", precision_score)
             mlflow.log_metric("recall_score", recall_score)
-            mlflow.sklearn.log_model(best_model, "model")
+            mlflow.sklearn.log_model(
+                best_model, "model", registered_model_name=best_model_name
+            )
             # Model registry does not work with file store
             # if tracking_url_type_store != "file":
 
